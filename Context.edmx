@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JabilModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="100" />
+          <Property Name="FullName" Type="nvarchar(max)" />
+          <Property Name="CreateAt" Type="datetime" />
+          <Property Name="ModifyAt" Type="datetime" />
+          <Property Name="CreateBy" Type="nchar" MaxLength="100" />
+          <Property Name="ModifyBy" Type="nchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="FXReader" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="JabilID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="JabilID_ID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ActiveGRN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GRN" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="PartNumber" Type="nvarchar(max)" />
+          <Property Name="Machine" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CustomerOfUser">
+          <Key>
+            <PropertyRef Name="CusID" />
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="CusID" Type="int" Nullable="false" />
+          <Property Name="AccountID" Type="int" Nullable="false" />
+          <Property Name="CusName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="FXReaders">
+          <Key>
+            <PropertyRef Name="FXReaderID" />
+          </Key>
+          <Property Name="FXReaderID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IPAddress" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="FXReaderName" Type="nvarchar(max)" />
+          <Property Name="CreateAt" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="ModifyAt" Type="datetime" />
+          <Property Name="ModifyBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="AuthorizationCode" Type="nvarchar(max)" />
+          <Property Name="MachineID" Type="int" />
+        </EntityType>
+        <EntityType Name="GrnOfEpc">
+          <Key>
+            <PropertyRef Name="EPC" />
+          </Key>
+          <Property Name="EPC" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GRN" Type="nvarchar" MaxLength="100" />
+          <Property Name="MapDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LiveGPI">
+          <Key>
+            <PropertyRef Name="GPI" />
+          </Key>
+          <Property Name="GPI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="FXReader" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LiveTags">
+          <Key>
+            <PropertyRef Name="EPC" />
+            <PropertyRef Name="FXReader" />
+          </Key>
+          <Property Name="EPC" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="FXReader" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ReadAt" Type="datetime" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="MachineOfCustomer">
+          <Key>
+            <PropertyRef Name="CusID" />
+            <PropertyRef Name="MachineID" />
+          </Key>
+          <Property Name="CusID" Type="int" Nullable="false" />
+          <Property Name="MachineID" Type="int" Nullable="false" />
+          <Property Name="CusName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Machines">
+          <Key>
+            <PropertyRef Name="MachineID" />
+          </Key>
+          <Property Name="MachineID" Type="int" Nullable="false" />
+          <Property Name="MachineInfo" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreateAt" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermisstionID" />
+          </Key>
+          <Property Name="PermisstionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PermissionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RecordData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PartNumber" Type="nvarchar(max)" />
+          <Property Name="GRN" Type="nvarchar(max)" />
+          <Property Name="RecordID" Type="int" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="Records">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecordType" Type="nvarchar(max)" />
+          <Property Name="Datetime" Type="datetime" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="50" />
+          <Property Name="Machine" Type="nvarchar(max)" />
+          <Property Name="Assembly" Type="nvarchar(max)" />
+          <Property Name="Setup" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="RolePermission">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateAt" Type="datetime" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="100" />
+          <Property Name="ModifyAt" Type="datetime" />
+          <Property Name="ModifyBy" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Accounts_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerOfUser_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="CustomerOfUser" Type="Self.CustomerOfUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="AccountID" />
+            </Principal>
+            <Dependent Role="CustomerOfUser">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FXReaders_Machines">
+          <End Role="Machines" Type="Self.Machines" Multiplicity="0..1" />
+          <End Role="FXReaders" Type="Self.FXReaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Machines">
+              <PropertyRef Name="MachineID" />
+            </Principal>
+            <Dependent Role="FXReaders">
+              <PropertyRef Name="MachineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MachineOfCustomer_Machines">
+          <End Role="Machines" Type="Self.Machines" Multiplicity="1" />
+          <End Role="MachineOfCustomer" Type="Self.MachineOfCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Machines">
+              <PropertyRef Name="MachineID" />
+            </Principal>
+            <Dependent Role="MachineOfCustomer">
+              <PropertyRef Name="MachineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecordData_Records">
+          <End Role="Records" Type="Self.Records" Multiplicity="0..1" />
+          <End Role="RecordData" Type="Self.RecordData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Records">
+              <PropertyRef Name="RecordID" />
+            </Principal>
+            <Dependent Role="RecordData">
+              <PropertyRef Name="RecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePermission_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="PermisstionID" />
+            </Principal>
+            <Dependent Role="RolePermission">
+              <PropertyRef Name="PermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePermission_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="RolePermission">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JabilModelStoreContainer">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActiveGRN" EntityType="Self.ActiveGRN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerOfUser" EntityType="Self.CustomerOfUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FXReaders" EntityType="Self.FXReaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GrnOfEpc" EntityType="Self.GrnOfEpc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LiveGPI" EntityType="Self.LiveGPI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LiveTags" EntityType="Self.LiveTags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MachineOfCustomer" EntityType="Self.MachineOfCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Machines" EntityType="Self.Machines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecordData" EntityType="Self.RecordData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Records" EntityType="Self.Records" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Accounts_Roles" Association="Self.FK_Accounts_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerOfUser_Accounts" Association="Self.FK_CustomerOfUser_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="CustomerOfUser" EntitySet="CustomerOfUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FXReaders_Machines" Association="Self.FK_FXReaders_Machines">
+            <End Role="Machines" EntitySet="Machines" />
+            <End Role="FXReaders" EntitySet="FXReaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MachineOfCustomer_Machines" Association="Self.FK_MachineOfCustomer_Machines">
+            <End Role="Machines" EntitySet="Machines" />
+            <End Role="MachineOfCustomer" EntitySet="MachineOfCustomer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecordData_Records" Association="Self.FK_RecordData_Records">
+            <End Role="Records" EntitySet="Records" />
+            <End Role="RecordData" EntitySet="RecordData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermission_Permission" Association="Self.FK_RolePermission_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="RolePermission" EntitySet="RolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermission_Roles" Association="Self.FK_RolePermission_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RolePermission" EntitySet="RolePermission" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JabilModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LiveGPIs" EntityType="JabilModel.LiveGPI" />
+          <EntitySet Name="Permissions" EntityType="JabilModel.Permission" />
+          <EntitySet Name="Roles" EntityType="JabilModel.Role" />
+          <AssociationSet Name="RolePermission" Association="JabilModel.RolePermission">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <EntitySet Name="CustomerOfUsers" EntityType="JabilModel.CustomerOfUser" />
+          <EntitySet Name="Accounts" EntityType="JabilModel.Account" />
+          <AssociationSet Name="FK_Accounts_Roles" Association="JabilModel.FK_Accounts_Roles">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerOfUser_Accounts" Association="JabilModel.FK_CustomerOfUser_Accounts">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="CustomerOfUser" EntitySet="CustomerOfUsers" />
+          </AssociationSet>
+          <EntitySet Name="Records" EntityType="JabilModel.Record" />
+          <EntitySet Name="RecordDatas" EntityType="JabilModel.RecordData" />
+          <AssociationSet Name="FK_RecordData_Records" Association="JabilModel.FK_RecordData_Records">
+            <End Role="Record" EntitySet="Records" />
+            <End Role="RecordData" EntitySet="RecordDatas" />
+          </AssociationSet>
+          <EntitySet Name="GrnOfEpcs" EntityType="JabilModel.GrnOfEpc" />
+          <EntitySet Name="Machines" EntityType="JabilModel.Machine" />
+          <EntitySet Name="FXReaders" EntityType="JabilModel.FXReader" />
+          <AssociationSet Name="FK_FXReaders_Machines" Association="JabilModel.FK_FXReaders_Machines">
+            <End Role="Machine" EntitySet="Machines" />
+            <End Role="FXReader" EntitySet="FXReaders" />
+          </AssociationSet>
+          <EntitySet Name="MachineOfCustomers" EntityType="JabilModel.MachineOfCustomer" />
+          <AssociationSet Name="FK_MachineOfCustomer_Machines" Association="JabilModel.FK_MachineOfCustomer_Machines">
+            <End Role="Machine" EntitySet="Machines" />
+            <End Role="MachineOfCustomer" EntitySet="MachineOfCustomers" />
+          </AssociationSet>
+          <EntitySet Name="LiveTags" EntityType="JabilModel.LiveTag" />
+          <EntitySet Name="ActiveGRNs" EntityType="JabilModel.ActiveGRN" />
+          </EntityContainer>
+        <EntityType Name="LiveGPI">
+          <Key>
+            <PropertyRef Name="GPI" />
+          </Key>
+          <Property Name="GPI" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="FXReader" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermisstionID" />
+          </Key>
+          <Property Name="PermisstionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PermissionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Roles" Relationship="JabilModel.RolePermission" FromRole="Permission" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Permissions" Relationship="JabilModel.RolePermission" FromRole="Role" ToRole="Permission" />
+          <Property Name="CreateAt" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyAt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Accounts" Relationship="JabilModel.FK_Accounts_Roles" FromRole="Role" ToRole="Account" />
+        </EntityType>
+        <Association Name="RolePermission">
+          <End Type="JabilModel.Permission" Role="Permission" Multiplicity="*" />
+          <End Type="JabilModel.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <EntityType Name="CustomerOfUser">
+          <Key>
+            <PropertyRef Name="CusID" />
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="CusID" Type="Int32" Nullable="false" />
+          <Property Name="CusName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccountID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="JabilModel.FK_CustomerOfUser_Accounts" FromRole="CustomerOfUser" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="Int32" Nullable="false" />
+          <Property Name="AccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateAt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyAt" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="ModifyBy" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FXReader" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="CustomerID" Type="Int32" />
+          <NavigationProperty Name="Role" Relationship="JabilModel.FK_Accounts_Roles" FromRole="Account" ToRole="Role" />
+          <NavigationProperty Name="CustomerOfUsers" Relationship="JabilModel.FK_CustomerOfUser_Accounts" FromRole="Account" ToRole="CustomerOfUser" />
+          <Property Name="JabilID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JabilID_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Accounts_Roles">
+          <End Type="JabilModel.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="JabilModel.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerOfUser_Accounts">
+          <End Type="JabilModel.Account" Role="Account" Multiplicity="1" />
+          <End Type="JabilModel.CustomerOfUser" Role="CustomerOfUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountID" />
+            </Principal>
+            <Dependent Role="CustomerOfUser">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Record">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecordType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Datetime" Type="DateTime" Precision="3" />
+          <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Machine" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Assembly" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Setup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RecordDatas" Relationship="JabilModel.FK_RecordData_Records" FromRole="Record" ToRole="RecordData" />
+        </EntityType>
+        <EntityType Name="RecordData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GRN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RecordID" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="Record" Relationship="JabilModel.FK_RecordData_Records" FromRole="RecordData" ToRole="Record" />
+        </EntityType>
+        <Association Name="FK_RecordData_Records">
+          <End Type="JabilModel.Record" Role="Record" Multiplicity="0..1" />
+          <End Type="JabilModel.RecordData" Role="RecordData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Record">
+              <PropertyRef Name="RecordID" />
+            </Principal>
+            <Dependent Role="RecordData">
+              <PropertyRef Name="RecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="GrnOfEpc">
+          <Key>
+            <PropertyRef Name="EPC" />
+          </Key>
+          <Property Name="EPC" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GRN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MapDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Machine">
+          <Key>
+            <PropertyRef Name="MachineID" />
+          </Key>
+          <Property Name="MachineID" Type="Int32" Nullable="false" />
+          <Property Name="MachineInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreateAt" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FXReaders" Relationship="JabilModel.FK_FXReaders_Machines" FromRole="Machine" ToRole="FXReader" />
+          <NavigationProperty Name="MachineOfCustomers" Relationship="JabilModel.FK_MachineOfCustomer_Machines" FromRole="Machine" ToRole="MachineOfCustomer" />
+        </EntityType>
+        <EntityType Name="FXReader">
+          <Key>
+            <PropertyRef Name="FXReaderID" />
+          </Key>
+          <Property Name="FXReaderID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IPAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="FXReaderName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateAt" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyAt" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorizationCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MachineID" Type="Int32" />
+          <NavigationProperty Name="Machine" Relationship="JabilModel.FK_FXReaders_Machines" FromRole="FXReader" ToRole="Machine" />
+        </EntityType>
+        <Association Name="FK_FXReaders_Machines">
+          <End Type="JabilModel.Machine" Role="Machine" Multiplicity="0..1" />
+          <End Type="JabilModel.FXReader" Role="FXReader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Machine">
+              <PropertyRef Name="MachineID" />
+            </Principal>
+            <Dependent Role="FXReader">
+              <PropertyRef Name="MachineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MachineOfCustomer">
+          <Key>
+            <PropertyRef Name="CusID" />
+            <PropertyRef Name="MachineID" />
+          </Key>
+          <Property Name="CusID" Type="Int32" Nullable="false" />
+          <Property Name="MachineID" Type="Int32" Nullable="false" />
+          <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Machine" Relationship="JabilModel.FK_MachineOfCustomer_Machines" FromRole="MachineOfCustomer" ToRole="Machine" />
+        </EntityType>
+        <Association Name="FK_MachineOfCustomer_Machines">
+          <End Type="JabilModel.Machine" Role="Machine" Multiplicity="1" />
+          <End Type="JabilModel.MachineOfCustomer" Role="MachineOfCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Machine">
+              <PropertyRef Name="MachineID" />
+            </Principal>
+            <Dependent Role="MachineOfCustomer">
+              <PropertyRef Name="MachineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LiveTag">
+          <Key>
+            <PropertyRef Name="EPC" />
+            <PropertyRef Name="FXReader" />
+          </Key>
+          <Property Name="EPC" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FXReader" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ReadAt" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ActiveGRN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GRN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="PartNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Machine" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JabilModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="LiveGPIs">
+            <EntityTypeMapping TypeName="JabilModel.LiveGPI">
+              <MappingFragment StoreEntitySet="LiveGPI">
+                <ScalarProperty Name="FXReader" ColumnName="FXReader" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GPI" ColumnName="GPI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="JabilModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+                <ScalarProperty Name="PermisstionID" ColumnName="PermisstionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="JabilModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyAt" ColumnName="ModifyAt" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="RolePermission" TypeName="JabilModel.RolePermission" StoreEntitySet="RolePermission">
+            <EndProperty Name="Role">
+              <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+            </EndProperty>
+            <EndProperty Name="Permission">
+              <ScalarProperty Name="PermisstionID" ColumnName="PermissionID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="CustomerOfUsers">
+            <EntityTypeMapping TypeName="JabilModel.CustomerOfUser">
+              <MappingFragment StoreEntitySet="CustomerOfUser">
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="CusName" ColumnName="CusName" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="JabilModel.Account">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="JabilID_ID" ColumnName="JabilID_ID" />
+                <ScalarProperty Name="JabilID" ColumnName="JabilID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="FXReader" ColumnName="FXReader" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ModifyAt" ColumnName="ModifyAt" />
+                <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Records">
+            <EntityTypeMapping TypeName="JabilModel.Record">
+              <MappingFragment StoreEntitySet="Records">
+                <ScalarProperty Name="Setup" ColumnName="Setup" />
+                <ScalarProperty Name="Assembly" ColumnName="Assembly" />
+                <ScalarProperty Name="Machine" ColumnName="Machine" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+                <ScalarProperty Name="RecordType" ColumnName="RecordType" />
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecordDatas">
+            <EntityTypeMapping TypeName="JabilModel.RecordData">
+              <MappingFragment StoreEntitySet="RecordData">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+                <ScalarProperty Name="GRN" ColumnName="GRN" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GrnOfEpcs">
+            <EntityTypeMapping TypeName="JabilModel.GrnOfEpc">
+              <MappingFragment StoreEntitySet="GrnOfEpc">
+                <ScalarProperty Name="MapDate" ColumnName="MapDate" />
+                <ScalarProperty Name="GRN" ColumnName="GRN" />
+                <ScalarProperty Name="EPC" ColumnName="EPC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Machines">
+            <EntityTypeMapping TypeName="JabilModel.Machine">
+              <MappingFragment StoreEntitySet="Machines">
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+                <ScalarProperty Name="MachineInfo" ColumnName="MachineInfo" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FXReaders">
+            <EntityTypeMapping TypeName="JabilModel.FXReader">
+              <MappingFragment StoreEntitySet="FXReaders">
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+                <ScalarProperty Name="AuthorizationCode" ColumnName="AuthorizationCode" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyAt" ColumnName="ModifyAt" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+                <ScalarProperty Name="FXReaderName" ColumnName="FXReaderName" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="FXReaderID" ColumnName="FXReaderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MachineOfCustomers">
+            <EntityTypeMapping TypeName="JabilModel.MachineOfCustomer">
+              <MappingFragment StoreEntitySet="MachineOfCustomer">
+                <ScalarProperty Name="CusName" ColumnName="CusName" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LiveTags">
+            <EntityTypeMapping TypeName="JabilModel.LiveTag">
+              <MappingFragment StoreEntitySet="LiveTags">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ReadAt" ColumnName="ReadAt" />
+                <ScalarProperty Name="FXReader" ColumnName="FXReader" />
+                <ScalarProperty Name="EPC" ColumnName="EPC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActiveGRNs">
+            <EntityTypeMapping TypeName="JabilModel.ActiveGRN">
+              <MappingFragment StoreEntitySet="ActiveGRN">
+                <ScalarProperty Name="Machine" ColumnName="Machine" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="GRN" ColumnName="GRN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

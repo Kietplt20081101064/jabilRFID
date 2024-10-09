@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="93add3fac4d64c1e82a7aa051ac13539" Name="Diagram1">
+        <EntityTypeShape EntityType="JabilModel.LiveGPI" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="JabilModel.Permission" Width="1.5" PointX="0.75" PointY="11.375" />
+        <EntityTypeShape EntityType="JabilModel.Role" Width="1.5" PointX="0.75" PointY="8.375" />
+        <AssociationConnector Association="JabilModel.RolePermission" />
+        <EntityTypeShape EntityType="JabilModel.CustomerOfUser" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="JabilModel.Account" Width="1.5" PointX="3" PointY="10" />
+        <AssociationConnector Association="JabilModel.FK_Accounts_Roles" />
+        <AssociationConnector Association="JabilModel.FK_CustomerOfUser_Accounts" />
+        <EntityTypeShape EntityType="JabilModel.Record" Width="1.5" PointX="5.375" PointY="4" />
+        <EntityTypeShape EntityType="JabilModel.RecordData" Width="1.5" PointX="7.625" PointY="4.25" />
+        <AssociationConnector Association="JabilModel.FK_RecordData_Records" />
+        <EntityTypeShape EntityType="JabilModel.GrnOfEpc" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="JabilModel.Machine" Width="1.5" PointX="9.5" PointY="7.5" />
+        <EntityTypeShape EntityType="JabilModel.FXReader" Width="1.5" PointX="11.75" PointY="9.125" />
+        <AssociationConnector Association="JabilModel.FK_FXReaders_Machines" />
+        <EntityTypeShape EntityType="JabilModel.MachineOfCustomer" Width="1.5" PointX="11.75" PointY="5.75" />
+        <AssociationConnector Association="JabilModel.FK_MachineOfCustomer_Machines" />
+        <EntityTypeShape EntityType="JabilModel.LiveTag" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="JabilModel.ActiveGRN" Width="1.5" PointX="3.375" PointY="0.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "ModalCustomer";
+}
+
+<h2>ModalCustomer</h2>
+
+<div class="modal fade" id="CustomersModal" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalSizeXl" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-l" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Select default customer</h5>
+                
+            </div>
+            <div class="modal-body">
+                <form id="CustomersForm" class="form">
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label>Customer</label>
+                            <div class="checkbox-inline">
+                                <select style="width: 100%;" class="form-control select2"  id="DefaultCustomerSelect">
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary font-weight-bold" id="btnSaveCustomerOfUser" >Save</button>
+            </div>
+        </div>
+    </div>
+</div>

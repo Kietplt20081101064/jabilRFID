@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JabilModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="AccountID" />
+    </Key>
+    <Property Name="AccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="100" />
+    <Property Name="FullName" Type="nvarchar(max)" />
+    <Property Name="CreateAt" Type="datetime" />
+    <Property Name="ModifyAt" Type="datetime" />
+    <Property Name="CreateBy" Type="nchar" MaxLength="100" />
+    <Property Name="ModifyBy" Type="nchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="FXReader" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleID" Type="int" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="JabilID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="JabilID_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ActiveGRN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GRN" Type="nvarchar(max)" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="PartNumber" Type="nvarchar(max)" />
+    <Property Name="Machine" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CustomerOfUser">
+    <Key>
+      <PropertyRef Name="CusID" />
+      <PropertyRef Name="AccountID" />
+    </Key>
+    <Property Name="CusID" Type="int" Nullable="false" />
+    <Property Name="AccountID" Type="int" Nullable="false" />
+    <Property Name="CusName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="FXReaders">
+    <Key>
+      <PropertyRef Name="FXReaderID" />
+    </Key>
+    <Property Name="FXReaderID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IPAddress" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="FXReaderName" Type="nvarchar(max)" />
+    <Property Name="CreateAt" Type="datetime" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="ModifyAt" Type="datetime" />
+    <Property Name="ModifyBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="AuthorizationCode" Type="nvarchar(max)" />
+    <Property Name="MachineID" Type="int" />
+  </EntityType>
+  <EntityType Name="GrnOfEpc">
+    <Key>
+      <PropertyRef Name="EPC" />
+    </Key>
+    <Property Name="EPC" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="GRN" Type="nvarchar" MaxLength="100" />
+    <Property Name="MapDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LiveGPI">
+    <Key>
+      <PropertyRef Name="GPI" />
+    </Key>
+    <Property Name="GPI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="FXReader" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LiveTags">
+    <Key>
+      <PropertyRef Name="EPC" />
+      <PropertyRef Name="FXReader" />
+    </Key>
+    <Property Name="EPC" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="FXReader" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ReadAt" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="MachineOfCustomer">
+    <Key>
+      <PropertyRef Name="CusID" />
+      <PropertyRef Name="MachineID" />
+    </Key>
+    <Property Name="CusID" Type="int" Nullable="false" />
+    <Property Name="MachineID" Type="int" Nullable="false" />
+    <Property Name="CusName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Machines">
+    <Key>
+      <PropertyRef Name="MachineID" />
+    </Key>
+    <Property Name="MachineID" Type="int" Nullable="false" />
+    <Property Name="MachineInfo" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateAt" Type="datetime" />
+    <Property Name="CreateBy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="PermisstionID" />
+    </Key>
+    <Property Name="PermisstionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PermissionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RecordData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartNumber" Type="nvarchar(max)" />
+    <Property Name="GRN" Type="nvarchar(max)" />
+    <Property Name="RecordID" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Records">
+    <Key>
+      <PropertyRef Name="RecordID" />
+    </Key>
+    <Property Name="RecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecordType" Type="nvarchar(max)" />
+    <Property Name="Datetime" Type="datetime" />
+    <Property Name="Owner" Type="nvarchar" MaxLength="50" />
+    <Property Name="Machine" Type="nvarchar(max)" />
+    <Property Name="Assembly" Type="nvarchar(max)" />
+    <Property Name="Setup" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="PermissionID" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="PermissionID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateAt" Type="datetime" />
+    <Property Name="CreateBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifyAt" Type="datetime" />
+    <Property Name="ModifyBy" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_Accounts_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Accounts">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerOfUser_Accounts">
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+    <End Role="CustomerOfUser" Type="Self.CustomerOfUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="CustomerOfUser">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FXReaders_Machines">
+    <End Role="Machines" Type="Self.Machines" Multiplicity="0..1" />
+    <End Role="FXReaders" Type="Self.FXReaders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machines">
+        <PropertyRef Name="MachineID" />
+      </Principal>
+      <Dependent Role="FXReaders">
+        <PropertyRef Name="MachineID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MachineOfCustomer_Machines">
+    <End Role="Machines" Type="Self.Machines" Multiplicity="1" />
+    <End Role="MachineOfCustomer" Type="Self.MachineOfCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machines">
+        <PropertyRef Name="MachineID" />
+      </Principal>
+      <Dependent Role="MachineOfCustomer">
+        <PropertyRef Name="MachineID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecordData_Records">
+    <End Role="Records" Type="Self.Records" Multiplicity="0..1" />
+    <End Role="RecordData" Type="Self.RecordData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Records">
+        <PropertyRef Name="RecordID" />
+      </Principal>
+      <Dependent Role="RecordData">
+        <PropertyRef Name="RecordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolePermission_Permission">
+    <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+    <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="PermisstionID" />
+      </Principal>
+      <Dependent Role="RolePermission">
+        <PropertyRef Name="PermissionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolePermission_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="RolePermission">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JabilModelStoreContainer">
+    <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActiveGRN" EntityType="Self.ActiveGRN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerOfUser" EntityType="Self.CustomerOfUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FXReaders" EntityType="Self.FXReaders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GrnOfEpc" EntityType="Self.GrnOfEpc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LiveGPI" EntityType="Self.LiveGPI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LiveTags" EntityType="Self.LiveTags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MachineOfCustomer" EntityType="Self.MachineOfCustomer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Machines" EntityType="Self.Machines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecordData" EntityType="Self.RecordData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Records" EntityType="Self.Records" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Accounts_Roles" Association="Self.FK_Accounts_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Accounts" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerOfUser_Accounts" Association="Self.FK_CustomerOfUser_Accounts">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="CustomerOfUser" EntitySet="CustomerOfUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FXReaders_Machines" Association="Self.FK_FXReaders_Machines">
+      <End Role="Machines" EntitySet="Machines" />
+      <End Role="FXReaders" EntitySet="FXReaders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MachineOfCustomer_Machines" Association="Self.FK_MachineOfCustomer_Machines">
+      <End Role="Machines" EntitySet="Machines" />
+      <End Role="MachineOfCustomer" EntitySet="MachineOfCustomer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecordData_Records" Association="Self.FK_RecordData_Records">
+      <End Role="Records" EntitySet="Records" />
+      <End Role="RecordData" EntitySet="RecordData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePermission_Permission" Association="Self.FK_RolePermission_Permission">
+      <End Role="Permission" EntitySet="Permission" />
+      <End Role="RolePermission" EntitySet="RolePermission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePermission_Roles" Association="Self.FK_RolePermission_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="RolePermission" EntitySet="RolePermission" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

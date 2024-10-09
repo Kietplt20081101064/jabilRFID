@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JabilModelStoreContainer" CdmEntityContainer="DBEntities">
+    <EntitySetMapping Name="LiveGPIs">
+      <EntityTypeMapping TypeName="JabilModel.LiveGPI">
+        <MappingFragment StoreEntitySet="LiveGPI">
+          <ScalarProperty Name="FXReader" ColumnName="FXReader" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GPI" ColumnName="GPI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permissions">
+      <EntityTypeMapping TypeName="JabilModel.Permission">
+        <MappingFragment StoreEntitySet="Permission">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+          <ScalarProperty Name="PermisstionID" ColumnName="PermisstionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="JabilModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyAt" ColumnName="ModifyAt" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RolePermission" TypeName="JabilModel.RolePermission" StoreEntitySet="RolePermission">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+      </EndProperty>
+      <EndProperty Name="Permission">
+        <ScalarProperty Name="PermisstionID" ColumnName="PermissionID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="CustomerOfUsers">
+      <EntityTypeMapping TypeName="JabilModel.CustomerOfUser">
+        <MappingFragment StoreEntitySet="CustomerOfUser">
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="JabilModel.Account">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="JabilID_ID" ColumnName="JabilID_ID" />
+          <ScalarProperty Name="JabilID" ColumnName="JabilID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="FXReader" ColumnName="FXReader" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="ModifyAt" ColumnName="ModifyAt" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Records">
+      <EntityTypeMapping TypeName="JabilModel.Record">
+        <MappingFragment StoreEntitySet="Records">
+          <ScalarProperty Name="Setup" ColumnName="Setup" />
+          <ScalarProperty Name="Assembly" ColumnName="Assembly" />
+          <ScalarProperty Name="Machine" ColumnName="Machine" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+          <ScalarProperty Name="RecordType" ColumnName="RecordType" />
+          <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecordDatas">
+      <EntityTypeMapping TypeName="JabilModel.RecordData">
+        <MappingFragment StoreEntitySet="RecordData">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+          <ScalarProperty Name="GRN" ColumnName="GRN" />
+          <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GrnOfEpcs">
+      <EntityTypeMapping TypeName="JabilModel.GrnOfEpc">
+        <MappingFragment StoreEntitySet="GrnOfEpc">
+          <ScalarProperty Name="MapDate" ColumnName="MapDate" />
+          <ScalarProperty Name="GRN" ColumnName="GRN" />
+          <ScalarProperty Name="EPC" ColumnName="EPC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Machines">
+      <EntityTypeMapping TypeName="JabilModel.Machine">
+        <MappingFragment StoreEntitySet="Machines">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+          <ScalarProperty Name="MachineInfo" ColumnName="MachineInfo" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FXReaders">
+      <EntityTypeMapping TypeName="JabilModel.FXReader">
+        <MappingFragment StoreEntitySet="FXReaders">
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="AuthorizationCode" ColumnName="AuthorizationCode" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyAt" ColumnName="ModifyAt" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+          <ScalarProperty Name="FXReaderName" ColumnName="FXReaderName" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="FXReaderID" ColumnName="FXReaderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MachineOfCustomers">
+      <EntityTypeMapping TypeName="JabilModel.MachineOfCustomer">
+        <MappingFragment StoreEntitySet="MachineOfCustomer">
+          <ScalarProperty Name="CusName" ColumnName="CusName" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="CusID" ColumnName="CusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LiveTags">
+      <EntityTypeMapping TypeName="JabilModel.LiveTag">
+        <MappingFragment StoreEntitySet="LiveTags">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ReadAt" ColumnName="ReadAt" />
+          <ScalarProperty Name="FXReader" ColumnName="FXReader" />
+          <ScalarProperty Name="EPC" ColumnName="EPC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActiveGRNs">
+      <EntityTypeMapping TypeName="JabilModel.ActiveGRN">
+        <MappingFragment StoreEntitySet="ActiveGRN">
+          <ScalarProperty Name="Machine" ColumnName="Machine" />
+          <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="GRN" ColumnName="GRN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

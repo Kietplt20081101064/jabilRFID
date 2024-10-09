@@ -1,0 +1,134 @@
+﻿
+<div class="modal fade" id="ReadersModal" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalSizeXl" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">RFID Component Management</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="ReadersForm" class="form">
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label>Reader ID:</label>
+                            <input type="text" class="form-control" name="FXReaderID" placeholder="Enter Reader ID" />
+
+                        </div>
+                        
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <label>Reader Name:</label>
+                            <input type="text" class="form-control" name="FXReaderName" placeholder="Enter Reader Name" />
+
+                        </div>
+                        <div class="col-lg-6">
+                            <label>IP:</label>
+                            <input required type="text" class="form-control ip" name="IPAddress" placeholder="Enter Reader IP" />
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <label>Reader User:</label>
+                            <input type="text" class="form-control" name="FXReaderUser"  placeholder="Enter Reader User" />
+
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Reader Password:</label>
+                            <input type="password" class="form-control" name="FXReaderPassword" placeholder="Enter Reader Password" />
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label>Machine Name:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="MachineName" />
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary btnCheckMachineForReader" type="button">Check!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label>Machine:</label>
+                            <input type="text" class="form-control" readonly name="MachineInfo" />
+                            <input type="text" class="form-control" readonly hidden name="MachineID" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button type="button" id="btnSaveFXReader" class="btn btn-primary mr-2">Save</button>
+                            <button type="reset" class="btn btn-secondary">Clear</button>
+                        </div>
+                        
+                    </div>
+                </form>
+
+                <div class="separator separator-dashed my-10"></div>
+                <div class="mb-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 col-xl-8">
+                            <div class="row align-items-center">
+                                <div class="col-md-4 my-2 my-md-0">
+                                    <div class="input-icon">
+                                        <input type="text" class="form-control" placeholder="Search..." id="ReaderSearch" />
+                                        <span>
+                                            <i class="flaticon2-search-1 text-muted"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 col-xl-4">
+                            <div class="row d-flex flex-row-reverse">                            
+                                    <a  href="@Url.Action("ExportMachines","Machine")" class="btn btn-success font-weight-bold mr-2">
+                                        <i class="flaticon2-download-2"></i> Export
+                                    </a>                               
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="table-responsive" id="FXReaders" style="height: 450px;overflow-y: scroll;background:#ffffff">
+                    <table class="table table-bordered mb-6 table-hover" id="ReadersTable">
+                        <thead style="position: sticky; top: 0px; background: white">
+                            <tr class="bg-primary" style="color:#fff">
+                                <th scope="col">#</th>
+                                <th scope="col">Reader ID</th>
+                                <th scope="col">Reader Name</th>
+                                <th scope="col">IP</th>
+                                <th scope="col">Machine</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-5">
+                        <div class="dataTables_info" id="QtyNote"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>

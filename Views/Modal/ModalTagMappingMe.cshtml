@@ -1,0 +1,194 @@
+﻿
+@{
+    ViewBag.Title = "ModalTagMappingMe";
+}
+<div class="modal fade" id="TagMappingModal" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalSizeXl" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tag Mapping</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="TagMappingForm" class="form">
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label>FXReader</label>
+                            <div class="checkbox-inline">
+                                <select style="width: 100%;" class="form-control select2" name="FXReaderID" id="FXReadersSelect">
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <label>EPC</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="EPC" placeholder="" />
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary" id="btnGetReadedEPC" type="button"><i class="icon-xl la la-refresh"></i></button>
+                                </div>
+                            </div>
+                            <span class="form-text text-muted">Refresh to get newest EPC tag</span>
+
+                        </div>
+                        <div class="col-lg-1 d-flex flex-column justify-content-center align-items-center">
+                            <a href="#" class="btn btn-icon btn-success btn-circle">
+                                <i class="icon-xl fas fa-arrows-alt-h"></i>
+                            </a>
+                        </div>
+                        <div class="col-lg-5">
+                            <label>GRN</label>
+                            <input type="text" class="form-control" name="GRN" />
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button type="button" id="btnMapTag" class="btn btn-primary mr-2">Map</button>
+                            <button type="reset" class="btn btn-secondary">Clear</button>
+                        </div>
+
+                    </div>
+
+
+                    <div class="separator separator-dashed my-10"></div>
+                    <div class="mb-5">
+                        <div class="row align-items-center">
+                            <div class="col-lg-10">
+                                <div class="row align-items-center">
+                                    <div class="col-md-4 my-2 my-md-0">
+                                        <div class="input-icon">
+                                            <input type="text" class="form-control" placeholder="Search..." id="TagMappingSearch" />
+                                            <span>
+                                                <i class="flaticon2-search-1 text-muted"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-lg-1">
+                                <div class="row d-flex  flex-row-reverse">
+                                    <a href="#" data-toggle="modal" data-target="#TagMappingImportModal" class="btn btn-success font-weight-bold mr-2">
+                                        <i class="fas fa-file-upload"></i> Import
+                                    </a>
+
+                                </div>
+
+                            </div>
+                            <div class="col-lg-1">
+                                <div class="row d-flex">
+                                    <a href="@Url.Action("ExportTags","TagMapping")" class="btn btn-warning font-weight-bold mr-2">
+                                        <i class="fas fa-file-download"></i> Export
+                                    </a>
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+
+                    </div>
+                    <div class="table-responsive" id="TagMapping" style="height: 450px;overflow-y: scroll;background:#ffffff">
+                        <table class="table table-bordered mb-6 table-hover" id="TagMappingTable">
+                            <thead style="position: sticky; top: 0px; background: white">
+                                <tr class="bg-primary" style="color:#fff">
+                                    <th scope="col">No.</th>
+                                    <th scope="col">EPC</th>
+                                    <th scope="col">GRN</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-5">
+                            <div class="dataTables_info" id="QtyNote"></div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="TagMappingImportModal" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalSizeXl" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tag Mapping Import</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="TagMappingImportForm" class="form">
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label>File</label>
+                            <input type="file" class="form-control" id="ImportFile" name="GRNFile" />
+                        </div>
+                    </div>
+                    <div class="separator separator-dashed my-10"></div>
+                    <div class="mb-5">
+                        <div class="row d-flex  flex-row-reverse">
+                            <button type="button" class="btn btn-success mr-3" id="RfidCheck">
+                                RFID Check
+                            </button>
+
+                        </div>
+
+                    </div>
+                    <div class="table-responsive" id="TagMappingImport" style="height: 450px;overflow-y: scroll;background:#ffffff">
+                        <table class="table table-bordered mb-6 table-hover" id="TagMappingImportTable">
+                            <thead style="position: sticky; top: 0px; background: white">
+                                <tr class="bg-primary" style="color:#fff">
+                                    <th scope="col">No.</th>
+                                    <th scope="col">Tag Name</th>
+                                    <th scope="col">EPC</th>
+                                    <th scope="col">GRN</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-5">
+                            <div class="dataTables_info" id="QtyNote"></div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                <button type="button" style="display: none;" class="btn btn-light-success font-weight-bold" id="TagMappingImportBtn">Map</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

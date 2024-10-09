@@ -1,0 +1,249 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|c:\\users\\hp-tech14\\source\\repos\\jabilrfid\\controllers\\machinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:controllers\\machinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|c:\\users\\hp-tech14\\source\\repos\\jabilrfid\\assets\\js\\machinemonitor\\machinemonitor.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:assets\\js\\machinemonitor\\machinemonitor.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|c:\\users\\hp-tech14\\source\\repos\\jabilrfid\\views\\modal\\modalmachinemonitor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:views\\modal\\modalmachinemonitor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|c:\\users\\hp-tech14\\source\\repos\\jabilrfid\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\gpicomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:gpicomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\assets\\js\\record\\saverecord.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:assets\\js\\record\\saverecord.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\controllers\\rfidcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:controllers\\rfidcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\views\\modal\\modaltagmappingme.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:views\\modal\\modaltagmappingme.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\views\\modal\\modaltagmapping.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:views\\modal\\modaltagmapping.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\assets\\js\\tagmapping\\tagmappingimport.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:assets\\js\\tagmapping\\tagmappingimport.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\controllers\\tagmappingmecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:controllers\\tagmappingmecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19F0B743-F1C5-4423-8463-4F20B0B709A9}|Jabil.csproj|solutionrelative:controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 203,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MachineController.cs",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Controllers\\MachineController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MachineController.cs",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Controllers\\MachineController.cs",
+              "RelativeToolTip": "Controllers\\MachineController.cs",
+              "ViewState": "AgIAABEBAAAAAAAAAAAWwCABAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T08:17:03.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ModalMachineMonitor.cshtml",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Views\\Modal\\ModalMachineMonitor.cshtml",
+              "RelativeDocumentMoniker": "Views\\Modal\\ModalMachineMonitor.cshtml",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Views\\Modal\\ModalMachineMonitor.cshtml",
+              "RelativeToolTip": "Views\\Modal\\ModalMachineMonitor.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEcAAAB3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-03T08:14:10.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MachineMonitor.js",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\assets\\js\\machinemonitor\\MachineMonitor.js",
+              "RelativeDocumentMoniker": "assets\\js\\machinemonitor\\MachineMonitor.js",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\assets\\js\\machinemonitor\\MachineMonitor.js",
+              "RelativeToolTip": "assets\\js\\machinemonitor\\MachineMonitor.js",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAjwBIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-10-03T08:13:56.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GpiComponent.cs",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\GpiComponent.cs",
+              "RelativeDocumentMoniker": "GpiComponent.cs",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\GpiComponent.cs",
+              "RelativeToolTip": "GpiComponent.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwB8AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T04:18:33.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-17T06:59:31.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SaveRecord.js",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\assets\\js\\record\\SaveRecord.js",
+              "RelativeDocumentMoniker": "assets\\js\\record\\SaveRecord.js",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\assets\\js\\record\\SaveRecord.js",
+              "RelativeToolTip": "assets\\js\\record\\SaveRecord.js",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAtwDsBAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-09-17T02:58:31.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAOQDAAAAAAAAAHB4wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-16T07:05:43.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RFIDController.cs",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Controllers\\RFIDController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RFIDController.cs",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Controllers\\RFIDController.cs",
+              "RelativeToolTip": "Controllers\\RFIDController.cs",
+              "ViewState": "AgIAAIUBAAAAAAAAAMBcwIoBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T04:52:56.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ModalTagMappingMe.cshtml",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Views\\Modal\\ModalTagMappingMe.cshtml",
+              "RelativeDocumentMoniker": "Views\\Modal\\ModalTagMappingMe.cshtml",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Views\\Modal\\ModalTagMappingMe.cshtml",
+              "RelativeToolTip": "Views\\Modal\\ModalTagMappingMe.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAEwIoAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-11T06:56:12.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TagMappingImport.js",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\assets\\js\\tagmapping\\TagMappingImport.js",
+              "RelativeDocumentMoniker": "assets\\js\\tagmapping\\TagMappingImport.js",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\assets\\js\\tagmapping\\TagMappingImport.js",
+              "RelativeToolTip": "assets\\js\\tagmapping\\TagMappingImport.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-09-12T02:21:10.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ModalTagMapping.cshtml",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Views\\Modal\\ModalTagMapping.cshtml",
+              "RelativeDocumentMoniker": "Views\\Modal\\ModalTagMapping.cshtml",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Views\\Modal\\ModalTagMapping.cshtml",
+              "RelativeToolTip": "Views\\Modal\\ModalTagMapping.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-12T02:52:29.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ModuleController.cs",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Controllers\\ModuleController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ModuleController.cs",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Controllers\\ModuleController.cs",
+              "RelativeToolTip": "Controllers\\ModuleController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T03:58:06.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TagMappingMeController.cs",
+              "DocumentMoniker": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Controllers\\TagMappingMeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TagMappingMeController.cs",
+              "ToolTip": "C:\\Users\\hp-tech14\\source\\repos\\JabilRFID\\Controllers\\TagMappingMeController.cs",
+              "RelativeToolTip": "Controllers\\TagMappingMeController.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAwwFQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T04:21:38.041Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

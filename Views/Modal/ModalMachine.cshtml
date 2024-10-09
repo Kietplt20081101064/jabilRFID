@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "ModalMachine";
+}
+
+<div class="modal fade" id="MachinesModal" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalSizeXl" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Machine Setup</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="MachinesForm" class="form">
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label>Customer</label>
+                            <div class="checkbox-inline">
+                                <select style="width: 100%;" class="form-control select2" name="CustomerID" id="CustomersSelect">
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label>Machine Name:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="MachineName" />
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary btnCheckMachine" type="button">Check!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label>Machine:</label>
+                            <input type="text" class="form-control" readonly name="MachineInfo" />
+                            <input type="text" class="form-control" readonly hidden name="MachineID" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <label>FXReaderName</label>
+
+                            <input type="text" class="form-control" readonly name="FXReaderName" />
+                        </div>
+                        <div class="col-lg-6">
+                            <label>IP</label>
+                           
+                            <input type="text" class="form-control" readonly name="IPAddress" />
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button type="button" id="btnSaveMachine" class="btn btn-primary mr-2">Add</button>
+                            <button type="reset" class="btn btn-secondary">Clear</button>
+                        </div>
+
+                    </div>
+                    <div class="separator separator-dashed my-10"></div>
+                    <div class="mb-5">
+                        <div class="row align-items-center">
+                            <div class="col-lg-9 col-xl-8">
+                                <div class="row align-items-center">
+                                    <div class="col-md-4 my-2 my-md-0">
+                                        <div class="input-icon">
+                                            <input type="text" class="form-control" placeholder="Search..." id="MachineSearch" />
+                                            <span>
+                                                <i class="flaticon2-search-1 text-muted"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="table-responsive" id="Machines" style="height: 450px;overflow-y: scroll;background:#ffffff">
+                        <table class="table table-bordered mb-6 table-hover" id="MachinesTable">
+                            <thead style="position: sticky; top: 0px; background: white">
+                                <tr class="bg-primary" style="color:#fff">
+                                    <th scope="col">No.</th>
+                                    <th scope="col">Machine</th>
+                                    <th scope="col">FXReader Name</th>
+                                    <th scope="col">IPAddress</th>
+                                    <th scope="col">Action</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-5">
+                            <div class="dataTables_info" id="QtyNote"></div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

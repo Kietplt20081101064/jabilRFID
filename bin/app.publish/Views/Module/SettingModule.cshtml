@@ -1,0 +1,103 @@
+﻿@{
+    // Lấy danh sách quyền từ ViewBag
+    List<string> userPermissions = ViewBag.UserPermissions as List<string>;
+}
+
+<div class="dropdown">
+    <!--begin::Toggle-->
+    <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
+        <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
+            <span class="svg-icon svg-icon-xl svg-icon-primary">
+                <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <rect x="0" y="0" width="24" height="24"></rect>
+                        <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" fill="#000000"></path>
+                    </g>
+                </svg>
+                <!--end::Svg Icon-->
+            </span>
+        </div>
+    </div>
+    <!--end::Toggle-->
+    <!--begin::Dropdown-->
+    <div class="dropdown-menu p-0 m-0 dropdown-menu-anim-up dropdown-menu-sm dropdown-menu-right">
+        <!--begin::Nav-->
+        <ul class="navi navi-hover py-4">
+            <!--begin::Item-->
+            @if (userPermissions.Contains("RFID Component Management"))
+            {
+                <li class="navi-item">
+                    <a href="#" data-type="Readers" class="navi-link Setup">
+                        <span class="symbol symbol-20 mr-3"></span>
+                        <span class="navi-text">RFID Component Management</span>
+                    </a>
+                </li>
+}
+
+            @if (userPermissions.Contains("Machine Setup"))
+            {
+                <li class="navi-item">
+                    <a href="#" data-type="Machines" class="navi-link Setup">
+                        <span class="symbol symbol-20 mr-3"></span>
+                        <span class="navi-text">Machine Setup</span>
+                    </a>
+                </li>
+}
+
+            @if (userPermissions.Contains("Machine Monitor"))
+            {
+                <li class="navi-item">
+                    <a href="#" data-type="MachineMonitors" class="navi-link Setup">
+                        <span class="symbol symbol-20 mr-3"></span>
+                        <span class="navi-text">Machine Monitor</span>
+                    </a>
+                </li>
+}
+
+            @if (userPermissions.Contains("User Management"))
+            {
+                <li class="navi-item">
+                    <a href="#" data-type="Users" class="navi-link Setup">
+                        <span class="symbol symbol-20 mr-3"></span>
+                        <span class="navi-text">User Management</span>
+                    </a>
+                </li>
+}
+
+            @if (userPermissions.Contains("Tag Mapping"))
+            {
+                <li class="navi-item">
+                    <a href="#" data-type="TagMapping" class="navi-link Setup">
+                        <span class="symbol symbol-20 mr-3"></span>
+                        <span class="navi-text">Tag Mapping</span>
+                    </a>
+                </li>
+}
+
+            @if (userPermissions.Contains("Report"))
+            {
+                <li class="navi-item">
+                    <a href="#" data-type="Reports" class="navi-link Setup">
+                        <span class="symbol symbol-20 mr-3"></span>
+                        <span class="navi-text">Report</span>
+                    </a>
+                </li>
+}
+
+            @if (userPermissions.Contains("Setting"))
+            {
+                <li class="navi-item">
+                    <a href="#" data-type="Settings" class="navi-link Setup">
+                        <span class="symbol symbol-20 mr-3"></span>
+                        <span class="navi-text">Setting</span>
+                    </a>
+                </li>
+
+}
+
+        </ul>
+        <!--end::Nav-->
+    </div>
+    <!--end::Dropdown-->
+</div>

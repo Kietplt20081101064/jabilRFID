@@ -1,0 +1,202 @@
+﻿
+<div class="modal fade" id="ReportsModal" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalSizeXl" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Reports</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+              
+                <div class="mb-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-10">
+                            <div class="row align-items-center">
+                                <div class="col-md-3 my-2 my-md-0 form-group">
+                                    <label>
+                                        Search
+                                    </label>
+                                    <div class="input-icon">
+                                        <input type="text" class="form-control" placeholder="Search..." id="ReportSearch" />
+                                        <span>
+                                            <i class="flaticon2-search-1 text-muted"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 my-2 my-md-0 form-group">
+                                    <label>
+                                       Date Range
+                                    </label>
+                                    <input type="text" class="form-control" name="daterange" id="search_report_Daterange" value="" />
+                                </div> 
+                                <div class="col-md-4 my-2 my-md-0 form-group">
+                                    <label>
+                                        Machine
+                                    </label>
+                                    
+                                    <select class="form-control select2" id="search_report_Machine" style="width:100%">
+                                        <option value="">Machine</option>
+                                        @foreach (var m in ViewBag.machines)
+                                        {
+                                            <option value="@m">@m</option>
+                                        }
+
+
+                                    </select>
+                                    
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="row d-flex flex-row-reverse">
+                                <a href="@Url.Action("ExportReports","Report")" class="btn btn-success font-weight-bold mr-2">
+                                    <i class="flaticon2-download-2"></i> Export
+                                </a>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="row align-items-center">
+
+                                <div class="col-md-3 my-2 my-md-0 form-group">
+                                    <label>
+                                        Assembly
+                                    </label>
+                                    <select class="form-control select2" id="search_report_Assembly" style="width:100%">
+                                        <option value="">Assembly</option>
+                                        @foreach (var m in ViewBag.assembly)
+                                        {
+                                            <option value="@m">@m</option>
+                                        }
+
+
+                                    </select>
+                                </div>
+                                <div class="col-md-3 my-2 my-md-0 form-group">
+                                    <label>
+                                        Setup
+                                    </label>
+                                    <select class="form-control select2" id="search_report_Setup" style="width:100%">
+                                        <option value="">Setup</option>
+                                        @foreach (var m in ViewBag.setup)
+                                        {
+                                            <option value="@m">@m</option>
+                                        }
+
+
+                                    </select>
+                                </div>
+                                <div class="col-md-3 my-2 my-md-0 form-group">
+                                    <label>
+                                        Create By
+                                    </label>
+                                    <select class="form-control select2" id="search_report_Createby" style="width:100%">
+                                        <option value="">Createby</option>
+                                        @foreach (var m in ViewBag.creatby)
+                                        {
+                                            <option value="@m">@m</option>
+                                        }
+
+
+                                    </select>
+                                </div>
+                                <div class="col-md-3 my-2 my-md-0 form-group">
+                                    <label>
+                                        Status
+                                    </label>
+                                    <select class="form-control select2" id="search_report_Status" style="width:100%">
+                                        <option value="">Status</option>
+                                        @foreach (var m in ViewBag.status)
+                                        {
+                                            <option value="@m">@m</option>
+                                        }
+
+
+                                    </select>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <div class="table-responsive" id="Reports" style="height: 450px;overflow-y: scroll;background:#ffffff">
+                    <table class="table table-bordered mb-6 table-hover" id="ReportsTable">
+                        <thead style="position: sticky; top: 0px; background: white">
+                            <tr class="bg-primary" style="color:#fff">
+                                <th scope="col">#</th>
+                                <th scope="col">Machine</th>
+                                <th scope="col">Assembly</th>
+                                <th scope="col">Setup</th>
+                                <th scope="col">Create by</th>
+                                <th scope="col">Datetime</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-5">
+                        <div class="dataTables_info" id="QtyNote"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="DetailReportsModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Reports</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">              
+                <div class="table-responsive" id="DetailReports" style="height: 300px;overflow-y: scroll;background:#ffffff">
+                    <table class="table table-bordered mb-6 table-hover" id="DetailReportsTable">
+                        <thead style="position: sticky; top: 0px; background: white">
+                            <tr class="bg-primary" style="color:#fff">
+                                <th scope="col">#</th>
+                                <th scope="col">PartNumber</th>
+                                <th scope="col">GRN</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-5">
+                        <div class="dataTables_info" id="QtyNote"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
