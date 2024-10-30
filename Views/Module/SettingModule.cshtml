@@ -33,7 +33,7 @@
                         <span class="navi-text">RFID Component Management</span>
                     </a>
                 </li>
-}
+            }
 
             @if (userPermissions.Contains("Machine Setup"))
             {
@@ -43,7 +43,7 @@
                         <span class="navi-text">Machine Setup</span>
                     </a>
                 </li>
-}
+            }
 
             @if (userPermissions.Contains("Machine Monitor"))
             {
@@ -53,7 +53,7 @@
                         <span class="navi-text">Machine Monitor</span>
                     </a>
                 </li>
-}
+            }
 
             @if (userPermissions.Contains("User Management"))
             {
@@ -63,7 +63,7 @@
                         <span class="navi-text">User Management</span>
                     </a>
                 </li>
-}
+            }
 
             @if (userPermissions.Contains("Tag Mapping"))
             {
@@ -73,15 +73,17 @@
                         <span class="navi-text">Tag Mapping</span>
                     </a>
                 </li>
-}  @if (userPermissions.Contains("Tag MappingMe"))
+            }
+
+            @if (userPermissions.Contains("TagMappingMe"))
             {
                 <li class="navi-item">
-                    <a href="#" data-type="TagMapping" class="navi-link Setup">
+                    <a href="#" data-type="TagMappingMe" class="navi-link Setup">
                         <span class="symbol symbol-20 mr-3"></span>
-                        <span class="navi-text">Tag MappingMe</span>
+                        <span class="navi-text">ME Management</span>
                     </a>
                 </li>
-}
+            }
 
             @if (userPermissions.Contains("Report"))
             {
@@ -91,7 +93,7 @@
                         <span class="navi-text">Report</span>
                     </a>
                 </li>
-}
+            }
 
             @if (userPermissions.Contains("Setting"))
             {
@@ -101,8 +103,8 @@
                         <span class="navi-text">Setting</span>
                     </a>
                 </li>
+            }
 
-}
 
         </ul>
         <!--end::Nav-->

@@ -3,17 +3,17 @@
     var page = 1;
     var isLoadingData = false;
     var isFull = false;
-    let form = $(`#TagMappingForm`)
-    let table = $(`#TagMappingTable`)
+    let form = $(`#MEMappingForm`)
+    let table = $(`#METagMapping`)
 
     // Class Definition
-    var TagMappingModify = function () {
+    var TagMEMappingModify = function () {
         var _handleTagMappingForm = function () {
             let validation;
 
             // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
             validation = FormValidation.formValidation(
-                KTUtil.getById('TagMappingForm'),
+                KTUtil.getById('MEMappingForm'),
                 {
                     fields: {
                         GRN: {
@@ -28,6 +28,10 @@
                                 notEmpty: {
                                     message: 'Please enter EPC!',
                                 },
+                                regexp: {
+                                    regexp: /^ME/,
+                                    message: 'EPC must start with "ME"!',
+                                }
                             }
                         },
                     },
@@ -40,14 +44,12 @@
                 }
             );
 
-            $('#btnMapTag').on('click', function (e) {
+            $('#btnMEMapTag').on('click', function (e) {
                 e.preventDefault();
-
                 validation.validate().then(function (status) {
                     if (status == 'Valid') {
                         var formdata = form.serialize()
-                        Save(formdata)
-
+                        SaveME(formdata)
                     } else {
                         toastr.error(
                             'Something wrong!',
@@ -57,10 +59,10 @@
                     }
                 });
             });
-            function Save(data) {
+            function SaveME(data) {
                 // Gửi Ajax request đến action "Login"
                 $.ajax({
-                    url: '/TagMapping/MappingTag',
+                    url: '/TagMappingMe/MappingTag',
                     type: 'POST',
                     data: data,
                     success: function (result) {
@@ -71,7 +73,7 @@
                                 'Success'
                             );
                             form.trigger('reset');
-                            DataTagMappingTable()
+                            DataMETagMappingTable()
                         } else {
                             // Hiển thị thông báo lỗi
                             toastr.error(
@@ -103,38 +105,41 @@
         };
     }();
     jQuery(document).ready(function () {
-        TagMappingModify.init();
-        initGetReadedTag()
-        $('#TagMapping').scroll(function () {
-            /* var element = $(this)[0];*/
-            var scrollTop = $(this).scrollTop() + 3;
-            var scrollHeight = $(this)[0].scrollHeight;
-            var windowHeight = $(this).outerHeight();
+        TagMEMappingModify.init();
+        initMEGetReadedTag()
+        page = 1
+        ShowMETagMappingTable(page)
+        //$('#TagMapping').scroll(function () {
+        //    /* var element = $(this)[0];*/
+        //    var scrollTop = $(this).scrollTop() + 3;
+        //    var scrollHeight = $(this)[0].scrollHeight;
+        //    var windowHeight = $(this).outerHeight();
 
-            if (scrollTop + windowHeight >= scrollHeight && !isLoadingData && !isFull) {
+        //    if (scrollTop + windowHeight >= scrollHeight && !isLoadingData && !isFull) {
 
-                // Đạt đến cuối trang và không đang lấy dữ liệu
-                $('.spinner').show();
-                // Gọi hàm để lấy dữ liệu tiếp theo
-                ScrollData(page);
-                console.log(page)
-            }
-        });
+        //        // Đạt đến cuối trang và không đang lấy dữ liệu
+        //        $('.spinner').show();
+        //        // Gọi hàm để lấy dữ liệu tiếp theo
+        //        ScrollData(page);
+        //        console.log(page)
+        //    }
+        //});
 
     });
 
-    function DataTagMappingTable() {
+    function DataMETagMappingTable() {
         page = 1
-        table.find('tbody').empty()
-        ShowTagMappingTable(page)
-        InitTagMappingSearch()
-        InitReaderSelect()
+        table.find('tbody').empty();
+        ShowMETagMappingTable(page);
+        InitMETagMappingSearch();
+        $("#kt_datatable_me").KTDatatable().reload();
+        //InitReaderSelect()
     }
 
 
     function InitReaderSelect() {
 
-      
+
         GetDataList('/FXReader/GetFXList', ShowFXReaderSelect)
     }
     ////Fxreaders Select
@@ -174,36 +179,36 @@
         })
 
     }
-    function InitTagMappingSearch() {
-        $('#TagMappingSearch').keyup(function (event) {
+    function InitMETagMappingSearch() {
+        $('#METagMappingSearch').keyup(function (event) {
             var keycode = (event.keyCode ? event.keyCode : event.which);
             if (keycode == '13' || $(this).val() == "") { // Kiểm tra nếu phím được nhấn là Enter (mã ASCII của Enter là 13)      
                 table.find('tbody').empty()
-                debounce(ShowTagMappingTable(1, $(this).val()), 300)
+                debounce(ShowMETagMappingTable(1, $(this).val()), 300)
             }
         });
     }
     function ScrollData(page) {
-        let search = $('#TagMappingSearch').val().trim()
+        let search = $('#METagMappingSearch').val().trim()
 
-        ShowTagMappingTable(page, search)
+        ShowMETagMappingTable(page, search)
     }
-    let initRowClick = function ($tr) {
+    let initMERowClick = function ($tr) {
         // Ap dụng sự kiện click cho các dòng ngoại trừ cột cuối
-         $tr.find('td:not(:last-child)').click(function () {
+        $tr.find('td:not(:last-child)').click(function () {
             // Lấy dữ liệu từ các cột EPC và GRN ở cùng dòng
             let EPC = $(this).closest('tr').find('td.EPC').text();
-             let GRN = $(this).closest('tr').find('td.GRN').text();
-             GRN = GRN == 'Unassigned Tag' ? "" : GRN
+            let GRN = $(this).closest('tr').find('td.GRN').text();
+            GRN = GRN == 'Unassigned Tag' ? "" : GRN
             // Đặt giá trị EPC và GRN vào các trường input tương ứng
             $('input[name="EPC"]').val(EPC);
             $('input[name="GRN"]').val(GRN);
         });
     }
-    let ShowTagMappingTable = debounce(function (pagenumber, search) {
+    let ShowMETagMappingTable = debounce(function (pagenumber, search) {
         $.ajax({
             type: "GET",
-            url: "/TagMapping/GetTagMapping",
+            url: "/TagMappingMe/GetTagMapping",
             data: {
                 search,
                 page: pagenumber,
@@ -211,9 +216,9 @@
 
             datatype: 'json',
             success: function (data) {
-
-                let body = table.find('tbody')
-                isFull = false
+                let body = table.find('tbody');
+                console.log(body)
+                isFull = false 
                 //Hiển thị dữ liệu trong bảng
 
                 if (data.data && data.data.length > 0) {
@@ -225,25 +230,25 @@
                             <td class="EPC">${v.EPC}</td>
                             <td class="GRN">${v.GRN}</td>
                             <td>
-                                <a href="#" class="btn btn-light-danger font-weight-bold mr-2 btnDeleteTag">Delete</a>
-                                <a href="#" class="btn btn-light-warning font-weight-bold mr-2 btnUnmapTag">Unmap</a>
+                                <a href="#" class="btn btn-light-danger font-weight-bold mr-2 btnMEDeleteTag">Delete</a>
+                                <a href="#" class="btn btn-light-warning font-weight-bold mr-2 btnMEUnmapTag">Unmap</a>
                             </td>
                             </tr>`
 
                         body.append(tr)
-                        initRowClick($(body.find('tr').last()))
+                        initMERowClick($(body.find('tr').last()))
                     })
                     pagenumber++
                     page = pagenumber
-                    $('.btnDeleteTag').click(function (e) {
+                    $('.btnMEDeleteTag').click(function (e) {
                         e.preventDefault()
                         let epc = $(this).closest('tr').data('epc')
-                        DeleteTag(epc)
+                        MEDeleteTag(epc)
                     })
-                    $('.btnUnmapTag').click(function (e) {
+                    $('.btnMEUnmapTag').click(function (e) {
                         e.preventDefault()
                         let epc = $(this).closest('tr').data('epc')
-                        UnmapTag(epc)
+                        MEUnmapTag(epc)
                     })
 
                     isFull = data.to == data.total
@@ -264,7 +269,7 @@
 
     }, 200)
 
-    function initGetReadedTag() {
+    function initMEGetReadedTag() {
         $('#btnGetReadedEPC').click(debounce((e) => {
             let id = $('#FXReadersSelect').val()
             if (id != '') {
@@ -300,19 +305,20 @@
                     'Erorr'
                 );
             }
-           
 
-        },300))
-       
+
+        }, 300))
+
     }
 }
-const DeleteTag = debounce(function (epc) {
+
+const MEDeleteTag = debounce(function (epc) {
     $.ajax({
         type: "POST",
         url: '/TagMapping/DeleteTag',
 
         data: {
-            id:epc
+            id: epc
         },
         success: function (result) {
             // Xử lý kết quả từ action
@@ -322,7 +328,7 @@ const DeleteTag = debounce(function (epc) {
                     'Success'
                 );
 
-                DataTagMappingTable()
+                DataMETagMappingTable()
             } else {
                 // Hiển thị thông báo lỗi
                 toastr.error(
@@ -342,13 +348,13 @@ const DeleteTag = debounce(function (epc) {
         }
     });
 }, 300)
-const UnmapTag = debounce(function (epc) {
+const MEUnmapTag = debounce(function (epc) {
     $.ajax({
         type: "POST",
         url: '/TagMapping/UnMap',
 
         data: {
-            id:epc
+            id: epc
         },
         success: function (result) {
             // Xử lý kết quả từ action
@@ -358,12 +364,12 @@ const UnmapTag = debounce(function (epc) {
                     'Success'
                 );
 
-                DataTagMappingTable()
+                DataMETagMappingTable()
             } else {
                 // Hiển thị thông báo lỗi
                 toastr.error(
                     result.Message,
-                    'Error'
+                    'Erorr'
                 );
                 KTUtil.scrollTop();
             }

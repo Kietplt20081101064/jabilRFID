@@ -23,7 +23,10 @@ namespace Jabil.Controllers
         [HttpGet]
         public JsonResult GetTagMapping(string search, int page)
         {
-            var list = db.GrnOfEpcs.Select(t => new {
+            var list = db.GrnOfEpcs
+                       .Where(t => t.EPC.StartsWith("ME"))
+                       .Select(t => new
+            {
                 GRN = string.IsNullOrEmpty(t.GRN) ? "Unassigned Tag" : t.GRN,
                 t.EPC,
                 t.MapDate
@@ -218,6 +221,28 @@ namespace Jabil.Controllers
                 return Json(new { status = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
-      
+
+        [HttpPost]
+        public JsonResult GetListME()
+        {
+            try
+            {
+                var data = db.GrnOfEpcs
+                           .Where(t => t.EPC.StartsWith("ME"))
+                           .AsEnumerable()
+                           .Select((x, i) => new
+                           {
+                               STT = i + 1,
+                               Name = x.GRN,
+                               EPC = x.EPC,
+                               MapDate = x.MapDate
+                           })
+                           .ToList();
+                return Json(new { status = true, data });
+            }catch (Exception ex)
+            {
+                return Json(new { status = false, message = "Error: " + ex.Message });
+            }
         }
     }
+}

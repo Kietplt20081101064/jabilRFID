@@ -263,86 +263,86 @@ namespace Jabil.Controllers
         //    }
         //    return Json(response, JsonRequestBehavior.AllowGet);
         //}
-        [HttpPost]
-        public JsonResult SaveActiveGRNs(List<RecordData> sheet, string machine)
-        {
-            bool status = false;
-            string message = "Failed to save Active GRNs.";
+        //[HttpPost]
+        //public JsonResult SaveActiveGRNs(List<RecordData> sheet, string machine)
+        //{
+        //    bool status = false;
+        //    string message = "Failed to save Active GRNs.";
 
-            try
-            {
-                using (var db = new DBEntities())
-                {
-                    foreach (var recordData in sheet)
-                    {
-                        var existingGRN = db.ActiveGRNs.SingleOrDefault(g => g.GRN == recordData.GRN);
+        //    try
+        //    {
+        //        using (var db = new DBEntities())
+        //        {
+        //            foreach (var recordData in sheet)
+        //            {
+        //                var existingGRN = db.ActiveGRNs.SingleOrDefault(g => g.GRN == recordData.GRN);
 
-                        if (existingGRN == null)
-                        {
-                            db.ActiveGRNs.Add(new ActiveGRN
-                            {
-                                GRN = recordData.GRN,
-                                PartNumber = recordData.PartNumber,
-                                Machine = machine,
-                                CreatedAt = DateTime.Now
-                            });
-                        }
-                    }
+        //                if (existingGRN == null)
+        //                {
+        //                    db.ActiveGRNs.Add(new ActiveGRN
+        //                    {
+        //                        GRN = recordData.GRN,
+        //                        PartNumber = recordData.PartNumber,
+        //                        Machine = machine,
+        //                        CreatedAt = DateTime.Now
+        //                    });
+        //                }
+        //            }
 
-                    db.SaveChanges();
+        //            db.SaveChanges();
 
-                    status = true;
-                    message = "Active GRNs saved successfully.";
-                }
-            }
-            catch (Exception ex)
-            {
-                message = ex.Message;
-            }
+        //            status = true;
+        //            message = "Active GRNs saved successfully.";
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        message = ex.Message;
+        //    }
 
-            return Json(new { Status = status, Message = message });
-        }
+        //    return Json(new { Status = status, Message = message });
+        //}
         public class JsonResponse
         {
             public bool Status { get; set; }
             public string Message { get; set; }
         }
         [HttpGet]
-        public JsonResult CheckActiveGRN(string GRN)
-        {
-            var response = new
-            {
-                Status = false,
-                Message = "GRN has not been used or machine details not available."
-            };
+        //public JsonResult CheckActiveGRN(string GRN)
+        //{
+        //    var response = new
+        //    {
+        //        Status = false,
+        //        Message = "GRN has not been used or machine details not available."
+        //    };
 
-            try
-            {
-                using (var db = new DBEntities())
-                {
-                    var activeGRN = db.ActiveGRNs.SingleOrDefault(g => g.GRN == GRN);
+        //    try
+        //    {
+        //        using (var db = new DBEntities())
+        //        {
+        //            var activeGRN = db.ActiveGRNs.SingleOrDefault(g => g.GRN == GRN);
 
-                    if (activeGRN != null)
-                    {
-                        response = new
-                        {
-                            Status = true,
-                            Message = $"GRN is used in machine: {activeGRN.Machine}."
-                        };
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                response = new
-                {
-                    Status = false,
-                    Message = ex.Message
-                };
-            }
+        //            if (activeGRN != null)
+        //            {
+        //                response = new
+        //                {
+        //                    Status = true,
+        //                    Message = $"GRN is used in machine: {activeGRN.Machine}."
+        //                };
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        response = new
+        //        {
+        //            Status = false,
+        //            Message = ex.Message
+        //        };
+        //    }
 
-            return Json(response, JsonRequestBehavior.AllowGet);
-        }
+        //    return Json(response, JsonRequestBehavior.AllowGet);
+        //}
         [HttpPost]
         public JsonResult SaveRecord(Record record, List<RecordData> sheet)
         {
@@ -374,7 +374,7 @@ namespace Jabil.Controllers
                     db.SaveChanges();
                     if (record.RecordType == "Success")
                     {
-                        SaveActiveGRNs(sheet, record.Machine);
+                        //SaveActiveGRNs(sheet, record.Machine);
                     }
                     response.Status = true;
                 }
