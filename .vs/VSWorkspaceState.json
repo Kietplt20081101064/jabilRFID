@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\assets",
-    "\\assets\\js",
-    "\\assets\\js\\RFID",
-    "\\Controllers"
+    ""
   ],
-  "SelectedNode": "\\Controllers\\ReportController.cs",
+  "SelectedNode": "\\Jabil.sln",
   "PreviewInSolutionExplorer": false
 }
