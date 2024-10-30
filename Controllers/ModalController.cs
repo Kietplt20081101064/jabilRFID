@@ -48,6 +48,8 @@ namespace Jabil.Controllers
         public ActionResult ModalTagMappingMe() {
             return PartialView();
         } 
+
+
         public ActionResult ModalReport() {
             var machines = db.Records.Select(r => r.Machine).Distinct().ToList();
             var assembly = db.Records.Select(r => r.Assembly).Distinct().ToList();
